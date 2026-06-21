@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+/* ==================== */
+/* POPUP STYLES         */
+/* ==================== */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.popup-box {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    animation: scaleIn 0.4s ease-out;
+    position: relative;
+}
+
+.popup-box.error {
+    border-top: 5px solid #fc8181;
+}
+
+.popup-box.error .popup-icon {
+    color: #e53e3e;
+    margin-bottom: 15px;
+}
+
+.popup-box.error h3 {
+    color: #c53030;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.popup-box.success {
+    border-top: 5px solid #48bb78;
+}
+
+.popup-box.success .popup-icon {
+    color: #38a169;
+    margin-bottom: 15px;
+}
+
+.popup-box.success h3 {
+    color: #22543d;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.popup-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.popup-box.error .popup-btn {
+    background: #fc8181;
+    color: #ffffff;
+}
+
+.popup-box.error .popup-btn:hover {
+    background: #f56565;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(252, 129, 129, 0.4);
+}
+
+.popup-box.success .popup-btn {
+    background: #48bb78;
+    color: #ffffff;
+}
+
+.popup-box.success .popup-btn:hover {
+    background: #38a169;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+}
+
+/* ==================== */
+/* FORM STYLES          */
+/* ==================== */
+
+h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.5px;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideUp 0.6s ease-out;
+}
+
+label {
+    display: block;
+    color: #4a5568;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: #2d3748;
+    background: #f7fafc;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+input::placeholder {
+    color: #a0aec0;
+}
+
+button[name="register"],
+button[name="login"] {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+button[name="register"]:hover,
+button[name="login"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+a[href="login.php"],
+a[href="register.php"] {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+a[href="login.php"]:hover,
+a[href="register.php"]:hover {
+    color: #e2e8f0;
+    text-decoration: underline;
+}
+
+/* ==================== */
+/* ANIMATIONS           */
+/* ==================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== */
+/* RESPONSIVE           */
+/* ==================== */
+
+@media (max-width: 480px) {
+    form {
+        padding: 30px 25px;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .popup-box {
+        padding: 30px 25px;
+    }
+}
+
+/* Autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #f7fafc inset;
+    -webkit-text-fill-color: #2d3748;
+    transition: background-color 5000s ease-in-out 0s;
+}
